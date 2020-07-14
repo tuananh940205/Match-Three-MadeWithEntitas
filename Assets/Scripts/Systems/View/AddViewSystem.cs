@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AddViewSystem : ReactiveSystem<GameEntity>
 {
-    // readonly Transform _parent;
+    readonly Transform _parent;
     public AddViewSystem(Contexts contexts) : base(contexts.game)
     {
         _parent = new GameObject("Views").transform;
