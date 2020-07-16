@@ -15,12 +15,6 @@ public class MouseDownComponent : IComponent
 }
 
 [Input]
-public class MousePositionComponent : IComponent
-{
-    public Vector2 position;
-}
-
-[Input]
 public class MouseUpPosition : IComponent
 {
     public Vector2 position;

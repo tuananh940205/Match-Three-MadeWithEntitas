@@ -12,6 +12,9 @@ public sealed class EmitInputSystem : IExecuteSystem
 
     public void Execute()
     {
-
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.LogFormat("AAAAA");
+        }
     }
 }
