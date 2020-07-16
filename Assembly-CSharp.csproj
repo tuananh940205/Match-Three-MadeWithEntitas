@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\Systems\Input\EmitInputSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\View\AddViewSystem.cs" />
      <Compile Include="Assets\Scripts\Systems\View\CreateBoardSystem.cs" />
+     <Compile Include="Assets\Scripts\TileView.cs" />
      <None Include="Assets\Entitas\Entitas.xml" />
      <None Include="Assets\Entitas\LICENSE.txt" />
  <Reference Include="UnityEngine">
