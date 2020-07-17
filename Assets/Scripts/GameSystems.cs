@@ -1,12 +1,8 @@
 ﻿public sealed class GameSystems : Feature
 {
-    public GameSystems(Contexts contexts)
+    public GameSystems(Contexts contexts) : base("Game Systems")
     {
-        // Input
-        Add(new EmitInputSystem(contexts));
-
-        // View
-        Add(new AddViewSystem(contexts));
         Add(new CreateBoardSystem(contexts));
+        Add(new BoardSystem(contexts));
     }
 }
