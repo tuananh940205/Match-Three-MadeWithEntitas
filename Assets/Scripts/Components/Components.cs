@@ -43,3 +43,18 @@ public class BoardColumnComponent : IComponent
 {
     public int value;
 }
+
+[Game]
+public class PositionComponent : IComponent
+{
+    public Vector2 position;
+}
+
+[Game]
+public class SpriteComponent : IComponent
+{
+    public string name;
+}
+
+// [Game]
+// public class 

@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using Entitas.Unity;
 using UnityEngine;
 
 public class BoardSystem : ReactiveSystem<GameEntity>
 {
+    readonly Transform _viewContainer = new GameObject("Game Views").transform;
+    readonly string[] prefabs = new string[] { "Apple", "Bread", "Coconut", "Flower", "Milk", "Orange", "Vegetable"};
     public BoardSystem(Contexts contexts) : base(contexts.game)
     {
 
@@ -27,7 +30,10 @@ public class BoardSystem : ReactiveSystem<GameEntity>
             {
                 for(int x = 0; x < e.boardRow.value; x++)
                 {
-                    Debug.LogFormat("x = {0}, y = {1}", x, y);
+                    GameObject prefab = Resources.Load<GameObject>("Prefabs/" + prefabs[Random.Range(0, prefabs.Length)]);
+                    GameObject go = Object.Instantiate(prefab);
+                    go.transform.SetParent(_viewContainer, true);
+                    go.Link(e);
                 }
             }
         }
