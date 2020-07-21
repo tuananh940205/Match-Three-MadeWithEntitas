@@ -8,18 +8,21 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int BoardColumn = 0;
-    public const int BoardRow = 1;
+    public const int Direction = 0;
+    public const int Position = 1;
+    public const int View = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-        "BoardColumn",
-        "BoardRow"
+        "Direction",
+        "Position",
+        "View"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(BoardColumnComponent),
-        typeof(BoardRowComponent)
+        typeof(DirectionComponent),
+        typeof(PositionComponent),
+        typeof(ViewComponent)
     };
 }

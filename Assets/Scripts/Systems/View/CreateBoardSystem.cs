@@ -2,18 +2,18 @@
 using Entitas;
 using UnityEngine;
 
-public class CreateBoardSystem : IInitializeSystem
+public class CreateBoardSystem
 {
-    readonly GameContext _gameContext;
-    public CreateBoardSystem(Contexts contexts)
-    {
-        _gameContext = contexts.game;
-    }
+    // readonly GameContext _gameContext;
+    // public CreateBoardSystem(Contexts contexts)
+    // {
+    //     _gameContext = contexts.game;
+    // }
 
-    public void Initialize() 
-    {
-        GameEntity e = _gameContext.CreateEntity();
-        e.AddBoardColumn(10);
-        e.AddBoardRow(8);
-    }
+    // public void Initialize() 
+    // {
+    //     GameEntity e = _gameContext.CreateEntity();
+    //     e.AddBoardColumn(10);
+    //     e.AddBoardRow(8);
+    // }
 }
