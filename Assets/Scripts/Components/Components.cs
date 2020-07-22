@@ -15,7 +15,19 @@ public class PositionComponent : IComponent
 }
 
 [Game]
-public class DirectionComponent : IComponent
+public class BoardColumnComponent : IComponent
 {
-    public float angle;
+    public int value;
+}
+
+[Game]
+public class BoardRowComponent : IComponent
+{
+    public int value;
+}
+
+[Game]
+public class TilePrefabComponent : IComponent
+{
+    public string[] name;
 }
