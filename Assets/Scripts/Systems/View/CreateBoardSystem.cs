@@ -5,8 +5,10 @@ using Entitas.Unity;
 
 public class CreateBoardSystem : ReactiveSystem<GameEntity>
 {
+    // Transform viewContainer = new GameObject("Game Views").transform;
     readonly GameContext _gameContext;
-    Transform viewContainer = new GameObject("Game Views").transform;
+    
+    
     string[] names = new string[] {"Apple", "Bread", "Coconut", "Flower", "Milk", "Orange", "Vegetable"};
     public CreateBoardSystem(Contexts contexts) : base (contexts.game)
     {
@@ -27,24 +29,26 @@ public class CreateBoardSystem : ReactiveSystem<GameEntity>
     {
         foreach(GameEntity e in entities)
         {
-            Vector2 offset = Resources.Load<GameObject>("Prefabs/Apple").GetComponent<SpriteRenderer>().bounds.size;
-            Debug.LogFormat("value - {0}", offset);
-            Vector2 startPosition = new Vector2(-2.35f, 1.6f);
+            // Debug.LogFormat("value - {0}", offset);
             for(int y = 0; y < e.boardColumn.value; y++)
             {
                 for(int x = 0; x < e.boardRow.value; x++)
                 {
-                    // GameEntity _gameEntity = _gameContext.CreateEntity();
-                    Debug.LogFormat("x = {0}, y = {1}", x, y);
-                    GameObject go = Resources.Load<GameObject>("Prefabs/" + names[Random.Range(0, names.Length)]);;
-                    GameObject tile = Object.Instantiate(go);
-                    tile.transform.position =  new Vector2(startPosition.x + x * offset.x, startPosition.y - y * offset.y);
-                    tile.transform.SetParent(viewContainer, true);
-                    // tile.Link(e);
-                    
+                    GameEntity gameEntity = _gameContext.CreateEntity();
+                    // GameObject go = Resources.Load<GameObject>("Prefabs/" + names[Random.Range(0, names.Length - 1)]);
+                    GameObject go = Resources.Load<GameObject>("Prefabs/NullPrefab");
+                    // Vector2 tilePos = new Vector2(startPosition.x + x * offset.x, startPosition.y - y * offset.y);
+
+                    gameEntity.AddView(go, x, -y);
+                    // gameEntity.AddPosition(tilePos);
+                    // Debug.LogFormat("x = {0}, y = {1}", x, y);
+                    // GameObject tile = Object.Instantiate(go);
+                    // tile.Link(_gameEntity);
+                    // _gameEntity.AddView(go);
+                    // tile.transform.position =  new Vector2(startPosition.x + x * offset.x, startPosition.y - y * offset.y);
+                    // tile.transform.SetParent(viewContainer, true);
                 }
             }
         }
     }
-
 }

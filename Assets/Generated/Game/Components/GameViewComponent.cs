@@ -11,17 +11,21 @@ public partial class GameEntity {
     public ViewComponent view { get { return (ViewComponent)GetComponent(GameComponentsLookup.View); } }
     public bool hasView { get { return HasComponent(GameComponentsLookup.View); } }
 
-    public void AddView(UnityEngine.GameObject newGameObject) {
+    public void AddView(UnityEngine.GameObject newGameObject, int newRowPosition, int newColumnPosition) {
         var index = GameComponentsLookup.View;
         var component = (ViewComponent)CreateComponent(index, typeof(ViewComponent));
         component.gameObject = newGameObject;
+        component.rowPosition = newRowPosition;
+        component.columnPosition = newColumnPosition;
         AddComponent(index, component);
     }
 
-    public void ReplaceView(UnityEngine.GameObject newGameObject) {
+    public void ReplaceView(UnityEngine.GameObject newGameObject, int newRowPosition, int newColumnPosition) {
         var index = GameComponentsLookup.View;
         var component = (ViewComponent)CreateComponent(index, typeof(ViewComponent));
         component.gameObject = newGameObject;
+        component.rowPosition = newRowPosition;
+        component.columnPosition = newColumnPosition;
         ReplaceComponent(index, component);
     }
 

@@ -6,6 +6,8 @@ using UnityEngine;
 public class ViewComponent : IComponent
 {
     public GameObject gameObject;
+    public int rowPosition;
+    public int columnPosition;
 }
 
 [Game]

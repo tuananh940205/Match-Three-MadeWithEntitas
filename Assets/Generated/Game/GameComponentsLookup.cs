@@ -11,14 +11,16 @@ public static class GameComponentsLookup {
     public const int BoardColumn = 0;
     public const int BoardRow = 1;
     public const int Position = 2;
-    public const int View = 3;
+    public const int TilePrefab = 3;
+    public const int View = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
         "BoardColumn",
         "BoardRow",
         "Position",
+        "TilePrefab",
         "View"
     };
 
@@ -26,6 +28,7 @@ public static class GameComponentsLookup {
         typeof(BoardColumnComponent),
         typeof(BoardRowComponent),
         typeof(PositionComponent),
+        typeof(TilePrefabComponent),
         typeof(ViewComponent)
     };
 }
