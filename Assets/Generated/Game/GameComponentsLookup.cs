@@ -11,16 +11,20 @@ public static class GameComponentsLookup {
     public const int BoardColumn = 0;
     public const int BoardRow = 1;
     public const int Position = 2;
-    public const int TilePrefab = 3;
-    public const int View = 4;
+    public const int PositionListener = 3;
+    public const int PositionSetter = 4;
+    public const int Sprite = 5;
+    public const int View = 6;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "BoardColumn",
         "BoardRow",
         "Position",
-        "TilePrefab",
+        "PositionListener",
+        "PositionSetter",
+        "Sprite",
         "View"
     };
 
@@ -28,7 +32,9 @@ public static class GameComponentsLookup {
         typeof(BoardColumnComponent),
         typeof(BoardRowComponent),
         typeof(PositionComponent),
-        typeof(TilePrefabComponent),
+        typeof(PositionListenerComponent),
+        typeof(PositionSetterComponent),
+        typeof(SpriteComponent),
         typeof(ViewComponent)
     };
 }

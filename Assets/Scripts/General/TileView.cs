@@ -10,4 +10,14 @@ public class TileView : MonoBehaviour
     {
         Debug.LogFormat("down");
     }
+
+    // public void RegisterListener(Contexts contexts, GameEntity entity)
+    // {
+    //     entity.AddGamePositionListener(this);
+    // }
+
+    // public void OnPosition(GameEntity entity1, float x, float y)
+    // {
+    //     transform.position = new Vector2(x, y);
+    // }
 }

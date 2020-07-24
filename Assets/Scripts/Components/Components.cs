@@ -10,10 +10,11 @@ public class ViewComponent : IComponent
     public int columnPosition;
 }
 
-[Game]
+[Game, Event(EventTarget.Self)]
 public class PositionComponent : IComponent
 {
-    public Vector2 position;
+    public float x;
+    public float y;
 }
 
 [Game]
@@ -29,7 +30,12 @@ public class BoardRowComponent : IComponent
 }
 
 [Game]
-public class TilePrefabComponent : IComponent
+public class SpriteComponent : IComponent
 {
-    public string[] name;
+    public string name;
+}
+
+[Game]
+public class PositionSetterComponent : IComponent
+{
 }

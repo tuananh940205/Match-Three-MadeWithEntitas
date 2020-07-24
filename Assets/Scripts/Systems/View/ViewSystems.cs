@@ -2,9 +2,9 @@
 {
     public ViewSystems(Contexts contexts) : base("View Systems")
     {
+        Add(new BoardSizeSystem(contexts));
         Add(new InitializeBoardSystem(contexts));
-        Add(new CreateBoardSystem(contexts));
         Add(new AddViewSystem(contexts));
-        Add(new AddPositionSystem(contexts));
+        Add(new RenderPositionSystem(contexts));
     }
 }

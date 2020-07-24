@@ -8,8 +8,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Contexts _contexts = Contexts.sharedInstance;
-        _systems = new Feature("Features")
-            //.Add(new GameSystems(_contexts));
+        _systems = new Feature("Features")//.Add(new GameSystems(_contexts));
             .Add(new InputSystems(_contexts))
             .Add(new ViewSystems(_contexts));
         _systems.Initialize();
