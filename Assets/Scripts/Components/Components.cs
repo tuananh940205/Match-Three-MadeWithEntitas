@@ -36,6 +36,7 @@ public class SpriteComponent : IComponent
 }
 
 [Game]
-public class PositionSetterComponent : IComponent
+public class DebugMessageComponent : IComponent
 {
+    public string message;
 }

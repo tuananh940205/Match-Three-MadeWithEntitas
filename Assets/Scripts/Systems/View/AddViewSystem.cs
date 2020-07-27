@@ -6,11 +6,11 @@ using Entitas.Unity;
 
 public class AddViewSystem : ReactiveSystem<GameEntity>
 {
-    // Transform viewContainer = new GameObject("Game Views").transform;
+    Transform viewContainer = new GameObject("Game Views").transform;
     readonly GameContext _gameContext;
-    // Vector2 startPosition = new Vector2(-2.35f, 1.6f);
-    // Vector2 offset = Resources.Load<GameObject>("Prefabs/Apple").GetComponent<SpriteRenderer>().bounds.size;
-    // string[] names = new string[] {"Apple", "Bread", "Coconut", "Flower", "Milk", "Orange", "Vegetable"};
+    Vector2 startPosition = new Vector2(-2.35f, 1.6f);
+    Vector2 offset = Resources.Load<GameObject>("Prefabs/Apple").GetComponent<SpriteRenderer>().bounds.size;
+    
 
     public AddViewSystem(Contexts contexts): base(contexts.game)
     {
@@ -24,14 +24,19 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
 
     protected override bool Filter(GameEntity entity)
     {
-        return entity.hasView && !entity.hasPosition;
+        return entity.hasView;
     }
 
     protected override void Execute(List<GameEntity> entities)
     {
         foreach(GameEntity e in entities)
         {
+            Vector3 goPos = new Vector3(startPosition.x + e.view.rowPosition * offset.x, startPosition.y + e.view.columnPosition * -1 * offset.y);
             Debug.LogFormat("gameobject = {0}, x = {1}, y = {2}", e.view.gameObject.name, e.view.rowPosition, e.view.columnPosition);
+            GameObject go = Object.Instantiate(e.view.gameObject, goPos, Quaternion.identity);
+            go.transform.SetParent(viewContainer, true);
+            // e.AddPosition(e.view.rowPosition, e.view.columnPosition);
+            // e.AddPosition(1, 2);
             // Vector2 tilePos = new Vector2(e.view.rowPosition, e.view.columnPosition);
             // Vector2 tilePos = new Vector2(startPosition.x + offset.x * e.view.rowPosition, startPosition.y + offset.y * e.view.columnPosition);
             // GameObject go = Object.Instantiate(e.view.gameObject, tilePos, Quaternion.identity);
@@ -43,7 +48,9 @@ public class AddViewSystem : ReactiveSystem<GameEntity>
             // // Vector2 tilePos = new Vector2(12, 1);
             // // Debug.LogFormat("" + tilePos);
             // e.AddView(new GameObject());
-            // go.Link(e);
+            go.Link(e);
+            // GameObject go = Object.Instantiate(e.view.gameObject);
+            // go.transform.SetParent(viewContainer, true);
         }
     }
 }

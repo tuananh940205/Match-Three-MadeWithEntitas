@@ -10,9 +10,9 @@ public static class GameComponentsLookup {
 
     public const int BoardColumn = 0;
     public const int BoardRow = 1;
-    public const int Position = 2;
-    public const int PositionListener = 3;
-    public const int PositionSetter = 4;
+    public const int DebugMessage = 2;
+    public const int Position = 3;
+    public const int PositionListener = 4;
     public const int Sprite = 5;
     public const int View = 6;
 
@@ -21,9 +21,9 @@ public static class GameComponentsLookup {
     public static readonly string[] componentNames = {
         "BoardColumn",
         "BoardRow",
+        "DebugMessage",
         "Position",
         "PositionListener",
-        "PositionSetter",
         "Sprite",
         "View"
     };
@@ -31,9 +31,9 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(BoardColumnComponent),
         typeof(BoardRowComponent),
+        typeof(DebugMessageComponent),
         typeof(PositionComponent),
         typeof(PositionListenerComponent),
-        typeof(PositionSetterComponent),
         typeof(SpriteComponent),
         typeof(ViewComponent)
     };

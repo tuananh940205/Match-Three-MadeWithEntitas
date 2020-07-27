@@ -15,7 +15,6 @@ public class BoardSizeSystem : IInitializeSystem
     public void Initialize()
     {
         GameEntity e = _gameContext.CreateEntity();
-
         e.AddBoardRow(8);
         e.AddBoardColumn(10);
     }
